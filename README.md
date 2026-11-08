@@ -6,13 +6,13 @@ An educational CNN project exploring a four-label brain MRI dataset and the limi
 
 ## Project notebooks
 
-Run the notebooks in order in Google Colab or a local Python environment with a CUDA GPU recommended. Put the provided archive at `data/archive.zip` (or edit `ZIP_PATH` in the data-loading cell). The notebooks can also attempt the Kaggle download if credentials are configured.
+Run the notebooks in order in Google Colab or a local Python environment with a CUDA GPU recommended. The source archive is included in `data/` as two parts below GitHub's 100 MB file limit. The notebooks join the parts into `data/archive.zip` before extraction. You can also provide a zip at that path or use the Kaggle download fallback if credentials are configured.
 
 1. [Notebook 1 - Data audit and cleaning](NN_Month_P2_NB1_Cleaning_the_Mess.ipynb)
 2. [Notebook 2 - The convolutional neural network](NN_Month_P2_NB2_The_CNN.ipynb)
 3. [Notebook 3 - Stratified five-fold results](NN_Month_P2_NB3_Five_Fold_Results.ipynb)
 
-Notebook 1 creates a cleaned manifest and the first four figures. Notebook 2 demonstrates the residual CNN, trains one fold, and creates Figures 5-6. Notebook 3 trains/evaluates all folds and produces Figures 7-10. PNGs are saved under [`figures/`](figures/).
+Notebook 1 creates a cleaned manifest and the first four figures. Notebook 2 demonstrates the residual CNN, trains one fold, and creates Figures 5-6. Notebook 3 trains/evaluates all folds and produces Figures 7-14, including the single-fold comparison, ROC curves, class-metric radar chart, and confidence reliability view. PNGs are saved under [`figures/`](figures/).
 
 ## What the 512×512 filter means
 
@@ -21,6 +21,10 @@ The archive contains 5,249 images across Glioma (1,289), Meningioma (1,589), No 
 Only **16 No Tumor images** in this archive are 512×512. The other classes have over 1,200 each. Five-fold stratification needs at least five samples per class, and a 16-image class would still produce unstable estimates; accordingly the default pipeline's minimum-count rule excludes No Tumor from model training. The result is a three-class tumor-type experiment, while the audit preserves and reports the healthy-image counts. It does not represent tumor-versus-healthy screening.
 
 Exact byte duplicates are removed before folding. Near duplicates and patient overlap cannot be ruled out because the archive supplies no patient identifiers.
+
+## Evaluation visuals
+
+Notebook 3 adds an out-of-fold confusion matrix, a comparison of fold 1 with the five-fold estimate, one-versus-rest ROC curves, class-wise precision/recall/F1, a radar summary, and a confidence reliability diagram. Fold 1 is one part of the same five-fold experiment, not an independent benchmark.
 
 ## Figures
 
