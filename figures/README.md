@@ -24,5 +24,9 @@ The audit preview PNGs and a CNN architecture diagram are included now. Run note
 | 08 | 3 | Out-of-fold confusion matrix |
 | 09 | 3 | Per-class precision and recall |
 | 10 | 3 | Class activation maps for held-out predictions |
+| 11 | 3 | Single held-out fold compared with five-fold results |
+| 12 | 3 | One-versus-rest ROC curves from out-of-fold probabilities |
+| 13 | 3 | Precision, recall, and F1 radar chart |
+| 14 | 3 | Confidence reliability diagram and bin counts |
 
 The notebook creates model-result figures only after the corresponding training run completes. CAMs are qualitative checks, not evidence of clinical reasoning.
