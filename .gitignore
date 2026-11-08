@@ -1,0 +1,8 @@
+# Local source archive and extracted images
+data/archive.zip
+mri_data/
+clean_manifest.csv
+oof_predictions.csv
+*.pt
+*.pth
+.ipynb_checkpoints/
